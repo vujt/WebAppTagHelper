@@ -1,5 +1,46 @@
-﻿@using WebAppTagHelper.Models
-@{ ViewData["Title"] = "Tag Helper Simple Example"; }
+﻿@{ ViewData["Title"] = "Home Page"; }
+
+<company name="Microsoft">
+    <employee name="Taylor Mullen"
+              title="Software Engineer II">
+    </employee>
+    <employee name="Damian Edwards"
+              title="Principal Program Manager">
+    </employee>
+    <employee name="Eilon Lipton"
+              title="Principal Group Manager">
+    </employee>
+</company>
+
+<company name="Google">
+    <employee name="Larry Page"
+              title="Engineer Inventor">
+    </employee>
+    <employee name="Sergey Brin"
+              title="Computer Scientist">
+    </employee>
+</company>
+
+<company name="Microsoft">
+    <employee name="Taylor Mullen"
+              title="Software Engineer II">
+    </employee>
+    <employee name="Damian Edwards"
+              title="Principal Program Manager">
+    </employee>
+    <employee name="Eilon Lipton"
+              title="Principal Group Manager">
+    </employee>
+</company>
+
+<company name="Google">
+    <employee name="Larry Page"
+              title="Engineer Inventor">
+    </employee>
+    <employee name="Sergey Brin"
+              title="Computer Scientist">
+    </employee>
+</company>
 
 @{ List<Speaker> speakers = new List<Speaker>
 {
@@ -29,20 +70,20 @@
         }
     }; }
 
-@{ Speaker speaker = new Speaker
-                {
-                    SpeakerId = 1124,
-                    UserLastName = "Crockford",
-                    UserFirstName = "Douglas",
-                    Company = "PayPal"
-                }; }
+@*<div class="container">
+        <speaker-track track-name="JavaScript">
+            @await Component.InvokeAsync("SpeakerCard", speakers[0])
+            @await Component.InvokeAsync("SpeakerCard", speakers[1])
+            @await Component.InvokeAsync("SpeakerCard", speakers[2])
+        </speaker-track>
+    </div>*@
 
-<SpeakerTrack track-name="JavaScript">
-    <SpeakerCard speaker=@speakers[0]></SpeakerCard>
-    <SpeakerCard speaker=@speakers[1]></SpeakerCard>
-    <SpeakerCard speaker=@speakers[2]></SpeakerCard>
-</SpeakerTrack>
+<div class="container">
+    <speaker-track track-name="My Track Name">
+        <vc:speaker-card speaker=@speakers[0]></vc:speaker-card>
+        <vc:speaker-card speaker=@speakers[1]></vc:speaker-card>
+        <vc:speaker-card speaker=@speakers[2]></vc:speaker-card>
+    </speaker-track>
+</div>
 
-@*<img src="images/high-tech.png" asp-append-version="true"
-    alt="High Tech" />*@
-
+@*<speaker-card speaker="@speakers[0]"></speaker-card>*@
